@@ -10,13 +10,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 
+import { SafePipe } from '../shared/sanitizer-pipe';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     GallerySelectedPage,
     CameraSelectedPage,
-    ResultPage
+    ResultPage,
+    SafePipe
   ],
   imports: [
     BrowserModule,

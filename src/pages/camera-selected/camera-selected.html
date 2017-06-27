@@ -15,7 +15,8 @@
 
 <ion-content padding>
   <h3>Picture taken:</h3>
-  <ion-img src="./test-image.jpg" stlye="height: 250px; width: 188px;" alt=""></ion-img><br>
-  <button ion-button secondary>Read</button><br>
-  <button ion-button secondary>Retake</button>
+  <div [innerHTML]="imageTag | safe: 'url'"></div>
+  <button ion-button secondary (click)="readText()">Read</button><br>
+  <button ion-button secondary (click)="takePicture()">Retake</button><br>
+  <p>{{error}}</p>
 </ion-content>
