@@ -40,10 +40,8 @@ export class CameraSelectedPage {
       .then((data) => {
         this.imageData = `data:image/jpeg;base64,${data}`;
         this.imageData = this._sanitizer.bypassSecurityTrustUrl(this.imageData);
-        this.imageTag = '<img [src]="imageData" alt="picture"/>';
       }, (err) => {
         console.log(err);
-        alert("Error: " + err);
       });
   }
 

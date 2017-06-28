@@ -15,7 +15,9 @@
 
 <ion-content padding>
   <h3>Selected image:</h3><br>
-  <div [innerHTML]="imageTag"></div>
+  <div>
+    <img [src]="imageData" alt="">
+  </div>
   <button ion-button secondary (click)="readText()">Read</button><br>
   <button ion-button secondary (click)="getPicture()">Select other</button><br>
 </ion-content>

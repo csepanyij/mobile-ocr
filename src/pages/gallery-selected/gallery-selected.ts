@@ -12,7 +12,6 @@ import { ResultPage } from '../pages';
 })
 export class GallerySelectedPage {
 
-  imageTag: any;
   imageData: any;
   options: CameraOptions = {
     quality: 100,
@@ -39,7 +38,6 @@ export class GallerySelectedPage {
       .then((data) => {
         this.imageData = `data:image/jpeg;base64,${data}`;
         this.imageData = this._sanitizer.bypassSecurityTrustUrl(this.imageData);
-        this.imageTag = '<img [src]="imageData" alt="picture"/>';
       }, (err) => {
         console.log(err);
       });
