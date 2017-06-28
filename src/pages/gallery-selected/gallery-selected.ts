@@ -13,6 +13,7 @@ import { ResultPage } from '../pages';
 export class GallerySelectedPage {
 
   imageData: any;
+  imageLoaded: boolean = false;
   options: CameraOptions = {
     quality: 100,
     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
@@ -42,6 +43,7 @@ export class GallerySelectedPage {
       .then((data) => {
         this.imageData = `data:image/jpeg;base64,${data}`;
         this.imageData = this._sanitizer.bypassSecurityTrustUrl(this.imageData);
+        this.imageLoaded = true;
         loader.dismiss();
       }, (err) => {
         loader.dismiss();

@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DomSanitizer } from '@angular/platform-browser';
 
-
 import { ResultPage } from '../pages';
 
 @IonicPage()
@@ -48,6 +47,7 @@ export class CameraSelectedPage {
         this.imageData = `data:image/jpeg;base64,${data}`;
         this.imageData = this._sanitizer.bypassSecurityTrustUrl(this.imageData);
         loader.dismiss();
+        this.imageLoaded = true;
       }, (err) => {
         console.log(err);
         loader.dismiss();

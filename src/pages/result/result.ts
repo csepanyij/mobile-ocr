@@ -18,6 +18,6 @@ export class ResultPage {
     console.log('ionViewDidLoad ResultPage');
     this.imageData = this.navParams.get('imageData');
     let loader: Loading = this.navParams.get('loader');
-    loader.dismiss();
+    //loader.dismiss();
   }
 }

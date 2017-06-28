@@ -10,7 +10,7 @@
 <ion-content padding>
   <h3>Selected image:</h3><br>
   <div>
-    <img [src]="imageData" alt="">
+    <img [src]="imageData" alt="picture" *ngIf="imageLoaded">
   </div>
   <button ion-button secondary (click)="readText()">Read</button><br>
   <button ion-button secondary (click)="getPicture()">Select other</button><br>
