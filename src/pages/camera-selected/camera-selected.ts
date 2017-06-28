@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -15,7 +15,8 @@ export class CameraSelectedPage {
 
   imageData: any;
   imageTag: string;
-  error: any = "asdf";
+  imageLoaded: boolean = false;
+  
   options: CameraOptions = {
     quality: 100,
     sourceType: this.camera.PictureSourceType.CAMERA,
@@ -27,7 +28,8 @@ export class CameraSelectedPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public camera: Camera,
-              private _sanitizer: DomSanitizer) {
+              private _sanitizer: DomSanitizer,
+              public loadingController: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -36,12 +38,20 @@ export class CameraSelectedPage {
   }
 
   takePicture(): void {
+    this.imageLoaded = false;
+    let loader = this.loadingController.create({
+      content: 'Loading'
+    });
+    loader.present();
     this.camera.getPicture(this.options)
       .then((data) => {
         this.imageData = `data:image/jpeg;base64,${data}`;
         this.imageData = this._sanitizer.bypassSecurityTrustUrl(this.imageData);
+        loader.dismiss();
       }, (err) => {
         console.log(err);
+        loader.dismiss();
+        alert('Error: ' + err);
       });
   }
 

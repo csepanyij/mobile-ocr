@@ -34,23 +34,26 @@ export class GallerySelectedPage {
   }
 
   getPicture(): void {
-    this.camera.getPicture(this.options)
-      .then((data) => {
-        this.imageData = `data:image/jpeg;base64,${data}`;
-        this.imageData = this._sanitizer.bypassSecurityTrustUrl(this.imageData);
-      }, (err) => {
-        console.log(err);
-      });
-  }
-
-  readText(): void {
     let loader = this.loadingController.create({
       content: "Loading"
     });
     loader.present();
+    this.camera.getPicture(this.options)
+      .then((data) => {
+        this.imageData = `data:image/jpeg;base64,${data}`;
+        this.imageData = this._sanitizer.bypassSecurityTrustUrl(this.imageData);
+        loader.dismiss();
+      }, (err) => {
+        loader.dismiss();
+        console.log(err);
+        alert('Error: ' + err);
+      });
+  }
+
+  readText(): void {
 
     setTimeout(() => {
-      loader.dismiss();
+      
       this.navCtrl.push(ResultPage);
     }, 3000);
   }
