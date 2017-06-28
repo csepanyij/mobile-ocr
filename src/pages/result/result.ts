@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 
 /**
  * Generated class for the ResultPage page.
@@ -14,11 +14,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ResultPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  imageData: any;
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              public loadingController: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultPage');
+    this.imageData = this.navParams.get('imageData');
   }
 
 }

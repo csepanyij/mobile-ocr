@@ -51,11 +51,9 @@ export class GallerySelectedPage {
   }
 
   readText(): void {
-
-    setTimeout(() => {
-      
-      this.navCtrl.push(ResultPage);
-    }, 3000);
+      this.navCtrl.push(ResultPage, {
+        imageData: this.imageData
+      });
   }
 
 }

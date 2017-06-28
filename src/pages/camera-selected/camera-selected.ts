@@ -56,6 +56,8 @@ export class CameraSelectedPage {
   }
 
   readText(): void {
-    this.navCtrl.push(ResultPage);
+    this.navCtrl.push(ResultPage, {
+      imageData: this.imageData
+    });
   }
 }
