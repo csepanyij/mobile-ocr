@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, Loading } from 'ionic-angular';
 
-/**
- * Generated class for the ResultPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-result',
@@ -23,6 +17,7 @@ export class ResultPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ResultPage');
     this.imageData = this.navParams.get('imageData');
+    let loader: Loading = this.navParams.get('loader');
+    loader.dismiss();
   }
-
 }

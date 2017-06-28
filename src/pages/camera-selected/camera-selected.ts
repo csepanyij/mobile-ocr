@@ -56,8 +56,13 @@ export class CameraSelectedPage {
   }
 
   readText(): void {
+    let loader = this.loadingController.create({
+      content: 'Loading results'
+    });
+    loader.present();
     this.navCtrl.push(ResultPage, {
-      imageData: this.imageData
+      imageData: this.imageData,
+      loader: loader
     });
   }
 }

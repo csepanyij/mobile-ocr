@@ -51,9 +51,14 @@ export class GallerySelectedPage {
   }
 
   readText(): void {
-      this.navCtrl.push(ResultPage, {
-        imageData: this.imageData
-      });
+    let loader = this.loadingController.create({
+      content: 'Loading result'
+    });
+    loader.present();
+    this.navCtrl.push(ResultPage, {
+      imageData: this.imageData,
+      loader: loader
+    });
   }
 
 }
