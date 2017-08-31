@@ -9,6 +9,7 @@ import { HomePage, GallerySelectedPage, CameraSelectedPage, ResultPage } from '.
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
+import { HTTP } from '@ionic-native/http';
 
 import { SafePipe } from '../shared/sanitizer-pipe';
 
@@ -38,6 +39,7 @@ import { SafePipe } from '../shared/sanitizer-pipe';
     StatusBar,
     SplashScreen,
     Camera,
+    HTTP,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

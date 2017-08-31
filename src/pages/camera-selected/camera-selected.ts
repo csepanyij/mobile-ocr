@@ -51,7 +51,7 @@ export class CameraSelectedPage {
       }, (err) => {
         console.log(err);
         loader.dismiss();
-        alert('Error: ' + err);
+        alert('Error in camera: ' + err);
       });
   }
 

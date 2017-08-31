@@ -48,7 +48,7 @@ export class GallerySelectedPage {
       }, (err) => {
         loader.dismiss();
         console.log(err);
-        alert('Error: ' + err);
+        alert('Error in gallery: ' + err);
       });
   }
 
